@@ -13,32 +13,23 @@
 
 namespace cs31
 {
-
-    /*
-     This class represents one player in a centennial game, whether human or computer.
-     CS 31 Students have work to do here.
-     */
     class Player
     {
     public:
         Player();
 
-        // CS 31 TODO: randomly roll this player's dice
         void roll();
-        // CS 31 TODO: force a particular outcome by cheating
         void roll(Die d1, Die d2, Die d3);  // cheating...
 
-        // trivial getter operations for each of this player's dice
+        // getter operations for each of this player's dice
         Die  getDie1() const;
         Die  getDie2() const;
         Die  getDie3() const;
 
-        // primarily for testing purposes, show textually what was just rolled
+        // primarily for testing purposes, shows textually what was just rolled
         std::string whatWasRolled();
 
-        // CS 31 TODO: called to indicate that a certain spot has been rolled
         void rolled(int spot);
-        // CS 31 TODO: determine what value is needed next to move forward in the game
         int  whatSpotIsNeededNext();
 
         // trivial getter operations for each spot 1-12
@@ -70,7 +61,6 @@ namespace cs31
         bool hasRolled11;  // has the player tossed 11 yet?
         bool hasRolled12;  // has the player tossed 12 yet?
     };
-
 }
 
 #endif /* Player_h */

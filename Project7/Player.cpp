@@ -18,34 +18,26 @@ namespace cs31
 
     }
 
-    // CS 31 TODO: cheat by accepting a particular set of dies for this player to use
+    // cheats by accepting a particular set of dice for this player to use
     void Player::roll(Die d1, Die d2, Die d3)
     {
-        // assign each of the arguments to the Player's member variables to enable cheating...
+        // assigns each of the arguments to the Player's member variables to enable cheating
         mDie1 = d1;
         mDie2 = d2;
         mDie3 = d3;
     }
 
-    // CS 31 TODO: randomly roll each of the player's three dies
+    // randomly rolls each of the player's three dies
     void Player::roll()
     {
         mDie1.roll();
         mDie2.roll();
         mDie3.roll();
-        // randomly roll each of the three Die member variables
+        // randomly rolls each of the three Die member variables
     }
 
-    // CS 31 TODO: based on what has been tossed previously, determine the spot that is
-    //             needed next
-    // returning 1 means, in order to progress in the game at this point, the Player
-    //             needs to toss a one
-    // returning 2 means, in order to progress in the game at this point, the Player
-    //             needs to toss a two
-    // etc...
-    int  Player::whatSpotIsNeededNext()
+    int  Player::whatSpotIsNeededNext() // determines the result that is needed next
     {
-        // for now to get it to build...
         int result = 1;
         if (hasRolledOne()) { result = 2; }
         if (hasRolledTwo()) { result = 3; }
@@ -58,125 +50,105 @@ namespace cs31
         if (hasRolledNine()) { result = 10; }
         if (hasRolledTen()) { result = 11; }
         if (hasRolledEleven()) { result = 12; }
+        if (hasRolledTwelve()) { result = 0; }
 
         return(result);
     }
 
-    // CS 31 TODO: this operation is called to indicate that the argument has been rolled
-    //             in conjunction with the operation whatSpotIsNeededNext( ), adjust member
-    //             variables correctly so that play can progress in the game
-    // passing 1 means that a one was just tossed
-    // passing 2 means that a two was just tossed
-    // etc...
-    void Player::rolled(int spot)
+    void Player::rolled(int spot) // changes the hasRolled booleans to true if they have been rolled and it is the roll that was needed next
     {
-        //if (spot < 1 || spot > 12) { hasRolled1 = true; }
         if (spot == 1 && whatSpotIsNeededNext() == 1) { hasRolled1 = true; }
-        if (spot == 2 && whatSpotIsNeededNext() == 2) { hasRolled2 = true; }
-        if (spot == 3 && whatSpotIsNeededNext() == 3) { hasRolled3 = true; }
-        if (spot == 4 && whatSpotIsNeededNext() == 4) { hasRolled4 = true; }
-        if (spot == 5 && whatSpotIsNeededNext() == 5) { hasRolled5 = true; }
-        if (spot == 6 && whatSpotIsNeededNext() == 6) { hasRolled6 = true; }
-        if (spot == 7 && whatSpotIsNeededNext() == 7) { hasRolled7 = true; }
-        if (spot == 8 && whatSpotIsNeededNext() == 8) { hasRolled8 = true; }
-        if (spot == 9 && whatSpotIsNeededNext() == 9) { hasRolled9 = true; }
-        if (spot == 10 && whatSpotIsNeededNext() == 10) { hasRolled10 = true; }
-        if (spot == 11 && whatSpotIsNeededNext() == 11) { hasRolled11 = true; }
-        if (spot == 12 && whatSpotIsNeededNext() == 12) { hasRolled12 = true; }
+        if (spot == 2 && whatSpotIsNeededNext() == 2 && hasRolled1 == true) { hasRolled2 = true; }
+        if (spot == 3 && whatSpotIsNeededNext() == 3 && hasRolled2 == true) { hasRolled3 = true; }
+        if (spot == 4 && whatSpotIsNeededNext() == 4 && hasRolled3 == true) { hasRolled4 = true; }
+        if (spot == 5 && whatSpotIsNeededNext() == 5 && hasRolled4 == true) { hasRolled5 = true; }
+        if (spot == 6 && whatSpotIsNeededNext() == 6 && hasRolled5 == true) { hasRolled6 = true; }
+        if (spot == 7 && whatSpotIsNeededNext() == 7 && hasRolled6 == true) { hasRolled7 = true; }
+        if (spot == 8 && whatSpotIsNeededNext() == 8 && hasRolled7 == true) { hasRolled8 = true; }
+        if (spot == 9 && whatSpotIsNeededNext() == 9 && hasRolled8 == true) { hasRolled9 = true; }
+        if (spot == 10 && whatSpotIsNeededNext() == 10 && hasRolled9 == true) { hasRolled10 = true; }
+        if (spot == 11 && whatSpotIsNeededNext() == 11 && hasRolled10 == true) { hasRolled11 = true; }
+        if (spot == 12 && whatSpotIsNeededNext() == 12 && hasRolled11 == true) { hasRolled12 = true; }
 
     }
 
-    // trivial getter operation
+    // getters
     Die Player::getDie1() const
     {
         return(mDie1);
     }
 
-    // trivial getter operation
     Die Player::getDie2() const
     {
         return(mDie2);
     }
 
-    // trivial getter operation
-    Die Player::getDie3() const
+   Die Player::getDie3() const
     {
         return(mDie3);
     }
 
-    // trivial getter operation
     bool Player::hasRolledOne() const
     {
         return(hasRolled1);
     }
 
-    // trivial getter operation
     bool Player::hasRolledTwo() const
     {
         return(hasRolled2);
     }
 
-    // trivial getter operation
     bool Player::hasRolledThree() const
     {
         return(hasRolled3);
     }
 
-    // trivial getter operation
     bool Player::hasRolledFour() const
     {
         return(hasRolled4);
     }
 
-    // trivial getter operation
     bool Player::hasRolledFive() const
     {
         return(hasRolled5);
     }
 
-    // trivial getter operation
     bool Player::hasRolledSix() const
     {
         return(hasRolled6);
     }
 
-    // trivial getter operation
     bool Player::hasRolledSeven() const
     {
         return(hasRolled7);
     }
 
-    // trivial getter operation
     bool Player::hasRolledEight() const
     {
         return(hasRolled8);
     }
 
-    // trivial getter operation
     bool Player::hasRolledNine() const
     {
         return(hasRolled9);
     }
 
-    // trivial getter operation
     bool Player::hasRolledTen() const
     {
         return(hasRolled10);
     }
 
-    // trivial getter operation
     bool Player::hasRolledEleven() const
     {
         return(hasRolled11);
     }
 
-    // trivial getter operation
     bool Player::hasRolledTwelve() const
     {
         return(hasRolled12);
     }
 
-    // used solely for testing purposes to see the value of each die
+    // outputs the value of each die
     // if we are using random rolls, we won't know what was tossed
     //         unless we use this operation
     std::string Player::whatWasRolled()
@@ -192,7 +164,4 @@ namespace cs31
         s += "\n";
         return(s);
     }
-
-
-
 }

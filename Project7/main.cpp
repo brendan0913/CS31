@@ -8,7 +8,9 @@
 #include <cassert>
 
 using namespace std;
-/*
+
+void clearScreen();
+
 int main()
 {
     using namespace std;
@@ -55,6 +57,171 @@ int main()
     assert(!p.hasRolledTwo());
     assert(!p.hasRolledThree());
     assert(p.whatSpotIsNeededNext() == 2);
+    p.rolled(2);
+    assert(p.hasRolledOne());
+    assert(p.hasRolledTwo());
+    assert(!p.hasRolledThree());
+    assert(p.whatSpotIsNeededNext() == 3);
+    p.rolled(3);
+    assert(p.hasRolledOne());
+    assert(p.hasRolledTwo());
+    assert(p.hasRolledThree());
+    assert(!p.hasRolledFour());
+    assert(p.whatSpotIsNeededNext() == 4);
+    p.rolled(4);
+    assert(p.hasRolledOne());
+    assert(p.hasRolledTwo());
+    assert(p.hasRolledThree());
+    assert(p.hasRolledFour());
+    assert(!p.hasRolledFive());
+    assert(!p.hasRolledSix());
+    assert(!p.hasRolledSeven());
+    assert(!p.hasRolledEight());
+    assert(!p.hasRolledNine());
+    assert(!p.hasRolledTen());
+    assert(!p.hasRolledEleven());
+    assert(!p.hasRolledTwelve());
+    assert(p.whatSpotIsNeededNext() == 5);
+    p.rolled(4);
+    assert(p.hasRolledOne());
+    assert(p.hasRolledTwo());
+    assert(p.hasRolledThree());
+    assert(p.hasRolledFour());
+    assert(!p.hasRolledFive());
+    assert(!p.hasRolledSix());
+    assert(!p.hasRolledSeven());
+    assert(!p.hasRolledEight());
+    assert(!p.hasRolledNine());
+    assert(!p.hasRolledTen());
+    assert(!p.hasRolledEleven());
+    assert(!p.hasRolledTwelve());
+    assert(p.whatSpotIsNeededNext() == 5);
+    p.rolled(5);
+    assert(p.hasRolledOne());
+    assert(p.hasRolledTwo());
+    assert(p.hasRolledThree());
+    assert(p.hasRolledFour());
+    assert(p.hasRolledFive());
+    assert(!p.hasRolledSix());
+    assert(!p.hasRolledSeven());
+    assert(!p.hasRolledEight());
+    assert(!p.hasRolledNine());
+    assert(!p.hasRolledTen());
+    assert(!p.hasRolledEleven());
+    assert(!p.hasRolledTwelve());
+    assert(p.whatSpotIsNeededNext() == 6);
+    p.rolled(6);
+    assert(p.hasRolledOne());
+    assert(p.hasRolledTwo());
+    assert(p.hasRolledThree());
+    assert(p.hasRolledFour());
+    assert(p.hasRolledFive());
+    assert(p.hasRolledSix());
+    assert(!p.hasRolledSeven());
+    assert(!p.hasRolledEight());
+    assert(!p.hasRolledNine());
+    assert(!p.hasRolledTen());
+    assert(!p.hasRolledEleven());
+    assert(!p.hasRolledTwelve());
+    assert(p.whatSpotIsNeededNext() == 7);
+    p.rolled(7);
+    assert(p.hasRolledOne());
+    assert(p.hasRolledTwo());
+    assert(p.hasRolledThree());
+    assert(p.hasRolledFour());
+    assert(p.hasRolledFive());
+    assert(p.hasRolledSix());
+    assert(p.hasRolledSeven());
+    assert(!p.hasRolledEight());
+    assert(!p.hasRolledNine());
+    assert(!p.hasRolledTen());
+    assert(!p.hasRolledEleven());
+    assert(!p.hasRolledTwelve());
+    assert(p.whatSpotIsNeededNext() == 8);
+    p.rolled(6);
+    assert(p.hasRolledOne());
+    assert(p.hasRolledTwo());
+    assert(p.hasRolledThree());
+    assert(p.hasRolledFour());
+    assert(p.hasRolledFive());
+    assert(p.hasRolledSix());
+    assert(p.hasRolledSeven());
+    assert(!p.hasRolledEight());
+    assert(!p.hasRolledNine());
+    assert(!p.hasRolledTen());
+    assert(!p.hasRolledEleven());
+    assert(!p.hasRolledTwelve());
+    assert(p.whatSpotIsNeededNext() == 8);
+    p.rolled(8);
+    assert(p.hasRolledOne());
+    assert(p.hasRolledTwo());
+    assert(p.hasRolledThree());
+    assert(p.hasRolledFour());
+    assert(p.hasRolledFive());
+    assert(p.hasRolledSix());
+    assert(p.hasRolledSeven());
+    assert(p.hasRolledEight());
+    assert(!p.hasRolledNine());
+    assert(!p.hasRolledTen());
+    assert(!p.hasRolledEleven());
+    assert(!p.hasRolledTwelve());
+    assert(p.whatSpotIsNeededNext() == 9);
+    p.rolled(9);
+    assert(p.hasRolledOne());
+    assert(p.hasRolledTwo());
+    assert(p.hasRolledThree());
+    assert(p.hasRolledFour());
+    assert(p.hasRolledFive());
+    assert(p.hasRolledSix());
+    assert(p.hasRolledSeven());
+    assert(p.hasRolledEight());
+    assert(p.hasRolledNine());
+    assert(!p.hasRolledTen());
+    assert(!p.hasRolledEleven());
+    assert(!p.hasRolledTwelve());
+    assert(p.whatSpotIsNeededNext() == 10);
+    p.rolled(10);
+    assert(p.hasRolledOne());
+    assert(p.hasRolledTwo());
+    assert(p.hasRolledThree());
+    assert(p.hasRolledFour());
+    assert(p.hasRolledFive());
+    assert(p.hasRolledSix());
+    assert(p.hasRolledSeven());
+    assert(p.hasRolledEight());
+    assert(p.hasRolledNine());
+    assert(p.hasRolledTen());
+    assert(!p.hasRolledEleven());
+    assert(!p.hasRolledTwelve());
+    assert(p.whatSpotIsNeededNext() == 11);
+    p.rolled(11);
+    assert(p.hasRolledOne());
+    assert(p.hasRolledTwo());
+    assert(p.hasRolledThree());
+    assert(p.hasRolledFour());
+    assert(p.hasRolledFive());
+    assert(p.hasRolledSix());
+    assert(p.hasRolledSeven());
+    assert(p.hasRolledEight());
+    assert(p.hasRolledNine());
+    assert(p.hasRolledTen());
+    assert(p.hasRolledEleven());
+    assert(!p.hasRolledTwelve());
+    assert(p.whatSpotIsNeededNext() == 12);
+    p.rolled(12);
+    assert(p.hasRolledOne());
+    assert(p.hasRolledTwo());
+    assert(p.hasRolledThree());
+    assert(p.hasRolledFour());
+    assert(p.hasRolledFive());
+    assert(p.hasRolledSix());
+    assert(p.hasRolledSeven());
+    assert(p.hasRolledEight());
+    assert(p.hasRolledNine());
+    assert(p.hasRolledTen());
+    assert(p.hasRolledEleven());
+    assert(p.hasRolledTwelve());
+
     // work the Player via Dice
     d1.setValue(6);
     d2.setValue(5);
@@ -127,28 +294,71 @@ int main()
     assert(game.isGameOver() == true);
     assert(game.determineGameOutcome() == Centennial::HUMANWONGAME);
 
+    Centennial game2;
+    Player h, c;
+    game2.humanPlay(d1, d3, d4);
+    h = game2.getHuman();
+    assert(h.whatSpotIsNeededNext() == 2);
+    game2.computerPlay(d1, d2, d3);
+    c = game2.getComputer();
+    assert(c.whatSpotIsNeededNext() == 7);
+    game2.humanPlay(d4, d2, d1);
+    h = game2.getHuman();
+    assert(h.whatSpotIsNeededNext() == 8);
+    game2.computerPlay(d5, d2, d1);
+    c = game2.getComputer();
+    assert(c.whatSpotIsNeededNext() == 9);
+    game2.humanPlay(d6, d2, d3);
+    h = game2.getHuman();
+    assert(h.whatSpotIsNeededNext() == 10);
+    game2.computerPlay(d5, d4, d1);
+    c = game2.getComputer();
+    assert(c.whatSpotIsNeededNext() == 11);
+    game2.humanPlay(d4, d5, d6);
+    h = game2.getHuman();
+    assert(h.whatSpotIsNeededNext() == 12);
+    game2.computerPlay(d6, d5, d2);
+    c = game2.getComputer();
+    assert(c.whatSpotIsNeededNext() == 12);
+    assert(game2.isGameOver() == false);
+    assert(game2.determineGameOutcome() == Centennial::GAMENOTOVER);
+    game2.humanPlay(d2, d3, d6);
+    h = game2.getHuman();
+    assert(h.whatSpotIsNeededNext() == 12);
+    game2.computerPlay(d6, d3, d3);
+    c = game2.getComputer();
+    assert(game2.isGameOver() == true);
+    assert(game2.determineGameOutcome() == Centennial::COMPUTERWONGAME);
+
+    Player P;
+    assert(P.whatSpotIsNeededNext() == 1);
+    P.roll(1, 2, 4);
+    assert(P.whatSpotIsNeededNext() == 1);
+
+    P.rolled(1);
+    P.rolled(2);
+    P.rolled(3);
+    P.rolled(4);
+    P.rolled(5);
+    P.rolled(6);
+    P.rolled(7);
+    assert(P.whatSpotIsNeededNext() == 8);
+
     cout << "All tests passed!" << endl;
-    return 0;
-   
-}*/
 
-void clearScreen();
-
-int main()
-{
     using namespace cs31;
     using namespace std;
 
     clearScreen();
 
-    Centennial game;
+    Centennial game3;
     std::string action, message = "(r)oll (q)uit: ";
     std::cout << message;
 
     // for now...
-    Die d1;
-    Die d2;
-    Die d3;
+    Die D1;
+    Die D2;
+    Die D3;
 
     do
     {
@@ -167,21 +377,20 @@ int main()
             return 0;
         case 'r':
         case 'R':
-            game.humanPlay();
-            cout << game.display("") << endl;
-            if (!game.isGameOver())
+            game3.humanPlay();
+            cout << game3.display("") << endl;
+            if (!game3.isGameOver())
             {
-                game.computerPlay();
-                cout << game.display(message) << endl;
+                game3.computerPlay();
+                cout << game3.display(message) << endl;
             }
             break;
         }
 
-    } while (!game.isGameOver());
+    } while (!game3.isGameOver());
 
-    return(0);
+    return 0;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //  clearScreen implementations

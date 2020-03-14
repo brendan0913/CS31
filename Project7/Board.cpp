@@ -15,38 +15,37 @@ namespace cs31
 
     }
 
-    // CS 31 TODO:  trivial setter operation
+    // setter
     void Board::setGameOver(bool value)
     {
         mGameOver = value;
     }
 
-    // CS 31 TODO:  trivial getter operation
+    // getter
     bool Board::isGameOver() const
     {
         return mGameOver;
     }
 
-    // CS 31 TODO:  trivial setter operation
+    // setter
     void Board::markHumanAsWinner()
     {
         if (mHumanSpot == 12) { mHumanWon = true; }
     }
 
-    // CS 31 TODO:  trivial setter operation
+    // setter
     void Board::markComputerAsWinner()
     {
         if (mComputerSpot == 12) { mHumanWon = false; }
     }
 
-    // CS 31 TODO:  trivial getter operation
+    // getter
     bool Board::isHumanWinner() const
     {
-        // for now to get it to build...
         return mHumanWon;
     }
 
-    // remember how far along the board the human player is
+    // remembers how far along the board the human player is
     void Board::setHumanSpot(int spot)
     {
         // the only legal spots are values between 0 and 12
@@ -56,19 +55,19 @@ namespace cs31
         }
     }
 
-    // trivial getter operation
-    int  Board::getHumanSpot()
+    // getter
+    int  Board::getHumanSpot() const
     {
         return(mHumanSpot);
     }
 
-    // trivial getter operation
-    int  Board::getComputerSpot()
+    // getter
+    int  Board::getComputerSpot() const
     {
         return(mComputerSpot);
     }
 
-    // remember how far along the board the computer player is
+    // remembers how far along the board the computer player is
     void Board::setComputerSpot(int spot)
     {
         // the only legal spots are values between 0 and 12
@@ -78,7 +77,7 @@ namespace cs31
         }
     }
 
-    // print the state of the board
+    // prints the state of the board
     // called by Centennial to show the state of game play with each round of play
     std::string Board::display() const
     {
@@ -116,8 +115,4 @@ namespace cs31
 
         return(s);
     }
-
-
-
-
 }

@@ -27,23 +27,23 @@ namespace cs31
         // prints the state of the game play with each round of play
         std::string display(std::string msg = "");
 
-        // CS 31 TODO: randomly play a human turn in the game
+        // randomly plays a human turn in the game
         void humanPlay();
-        // CS 31 TODO: force a certain roll in the human's turn of the game by cheating...
+        // forces a certain roll in the human's turn of the game by cheating...
         void humanPlay(Die d1, Die d2, Die d3);
         // CS 31 TODO: randomly play a computer turn in the game
         void computerPlay();
-        // CS 31 TODO: force a certain roll in the computer's turn of the game by cheating...
+        // forces a certain roll in the computer's turn of the game by cheating...
         void computerPlay(Die d1, Die d2, Die d3);
 
-        // CS 31 TODO: determine the current state of the game
+        // determines the current state of the game
         GAMEOUTCOME determineGameOutcome() const;
 
-        // CS 31 TODO: determine if the game has ended
+        // determines if the game has ended
         bool isGameOver();
 
         // primarily to enable testing of the game...
-        // trivial getter operations
+        // getters
         Player getHuman() const;
         Player getComputer() const;
         Board  getBoard() const;

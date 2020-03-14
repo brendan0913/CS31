@@ -53,11 +53,11 @@ namespace cs31
         return(s);
     }
 
-    // CS 31 TODO: randomly play a human turn in the game
+    // randomly plays a human turn in the game
     void Centennial::humanPlay()
     {
-        isHumanTurn = true; // mark that it is the human's turn
-        mHuman.roll(); // let the human player randomly roll
+        isHumanTurn = true; // marks that it is the human's turn
+        mHuman.roll(); // lets the human player randomly roll
         int first = mHuman.getDie1().getValue();
         int second = mHuman.getDie2().getValue();
         int third = mHuman.getDie3().getValue();
@@ -69,11 +69,11 @@ namespace cs31
         if ((first == 1 || second == 1 || third == 1) && mHuman.whatSpotIsNeededNext() == 1)
         {
             mHuman.rolled(1);
-            mBoard.setHumanSpot(1); // look at what was rolled and update the board spots accordingly
+            mBoard.setHumanSpot(1); // looks at what was rolled and update the board spots accordingly
         }
         if ((first == 2 || second == 2 || third == 2 || firsttwo == 2 || lasttwo == 2 || firstandthird == 2) && mHuman.hasRolledOne() == true && mHuman.whatSpotIsNeededNext() == 2)
         {
-            mHuman.rolled(2);
+            mHuman.rolled(2); // different combinations of rolls, the past roll has to be true and the spot needed has to be the same as what is rolled to not go backwards
             mBoard.setHumanSpot(2);
         }
         if ((first == 3 || second == 3 || third == 3 || firsttwo == 3 || lasttwo == 3 || firstandthird == 3 || total == 3) && mHuman.hasRolledTwo() == true && mHuman.whatSpotIsNeededNext() == 3)
@@ -98,7 +98,7 @@ namespace cs31
         }      
         if ((firsttwo == 7 || lasttwo == 7 || firstandthird == 7 || total == 7) && mHuman.hasRolledSix() == true && mHuman.whatSpotIsNeededNext() == 7)
         {
-            mHuman.rolled(7);
+            mHuman.rolled(7); // for 7-12, a single die cannot get the value alone
             mBoard.setHumanSpot(7);
         }      
         if ((firsttwo == 8 || lasttwo == 8 || firstandthird == 8 || total == 8) && mHuman.hasRolledSeven() == true && mHuman.whatSpotIsNeededNext() == 8)
@@ -128,11 +128,11 @@ namespace cs31
         }
     }
 
-    // CS 31 TODO: force a certain roll in the human's turn of the game by cheating...
+    // forces a certain roll in the human's turn of the game by cheating...
     void Centennial::humanPlay(Die d1, Die d2, Die d3)
     {
-        isHumanTurn = true; // mark that it is the human's turn
-        int first = d1.getValue(); // force the human player to cheat
+        isHumanTurn = true; // marks that it is the human's turn
+        int first = d1.getValue(); // forces the human player to cheat
         int second = d2.getValue();
         int third = d3.getValue();
         int firsttwo = first + second;
@@ -142,11 +142,11 @@ namespace cs31
         if ((first == 1 || second == 1 || third == 1) && mHuman.whatSpotIsNeededNext() == 1)
         {
             mHuman.rolled(1);
-            mBoard.setHumanSpot(1); // look at what was rolled and update the board spots accordingly
+            mBoard.setHumanSpot(1); // looks at what was rolled and update the board spots accordingly
         }
         if ((first == 2 || second == 2 || third == 2 || firsttwo == 2 || lasttwo == 2 || firstandthird == 2) && mHuman.hasRolledOne() == true && mHuman.whatSpotIsNeededNext() == 2)
         {
-            mHuman.rolled(2);
+            mHuman.rolled(2); // different combinations of rolls, the past roll has to be true and the spot needed has to be the same as what is rolled to not go backwards
             mBoard.setHumanSpot(2);
         }
         if ((first == 3 || second == 3 || third == 3 || firsttwo == 3 || lasttwo == 3 || firstandthird == 3 || total == 3) && mHuman.hasRolledTwo() == true && mHuman.whatSpotIsNeededNext() == 3)
@@ -171,7 +171,7 @@ namespace cs31
         }
         if ((firsttwo == 7 || lasttwo == 7 || firstandthird == 7 || total == 7) && mHuman.hasRolledSix() == true && mHuman.whatSpotIsNeededNext() == 7)
         {
-            mHuman.rolled(7);
+            mHuman.rolled(7); // for 7-12, a single die cannot get the value alone
             mBoard.setHumanSpot(7);
         }
         if ((firsttwo == 8 || lasttwo == 8 || firstandthird == 8 || total == 8) && mHuman.hasRolledSeven() == true && mHuman.whatSpotIsNeededNext() == 8)
@@ -201,11 +201,11 @@ namespace cs31
         }
     }   
 
-    // CS 31 TODO: randomly play a computer turn in the game
+    // randomly plays a computer turn in the game
     void Centennial::computerPlay()
     {
-        isHumanTurn = false; // mark that it is no longer the human's turn
-        mComputer.roll();// let the computer player randomly roll
+        isHumanTurn = false; // marks that it is no longer the human's turn
+        mComputer.roll();// lets the computer player randomly roll
         int first = mComputer.getDie1().getValue();
         int second = mComputer.getDie2().getValue();
         int third = mComputer.getDie3().getValue();
@@ -216,11 +216,11 @@ namespace cs31
         if ((first == 1 || second == 1 || third == 1) && mComputer.whatSpotIsNeededNext() == 1)
         {
             mComputer.rolled(1);
-            mBoard.setComputerSpot(1); // look at what was rolled and update the board spots accordingly
+            mBoard.setComputerSpot(1); // looks at what was rolled and update the board spots accordingly
         }
         if ((first == 2 || second == 2 || third == 2 || firsttwo == 2 || lasttwo == 2 || firstandthird == 2) && mComputer.hasRolledOne() == true && mComputer.whatSpotIsNeededNext() == 2)
         {
-            mComputer.rolled(2);
+            mComputer.rolled(2); // different combinations of rolls, the past roll has to be true and the spot needed has to be the same as what is rolled to not go backwards
             mBoard.setComputerSpot(2);
         }
         if ((first == 3 || second == 3 || third == 3 || firsttwo == 3 || lasttwo == 3 || firstandthird == 3 || total == 3) && mComputer.hasRolledTwo() == true && mComputer.whatSpotIsNeededNext() == 3)
@@ -245,7 +245,7 @@ namespace cs31
         }
         if ((firsttwo == 7 || lasttwo == 7 || firstandthird == 7 || total == 7) && mComputer.hasRolledSix() == true && mComputer.whatSpotIsNeededNext() == 7)
         {
-            mComputer.rolled(7);
+            mComputer.rolled(7); // for 7-12, a single die cannot get the value alone
             mBoard.setComputerSpot(7);
         }
         if ((firsttwo == 8 || lasttwo == 8 || firstandthird == 8 || total == 8) && mComputer.hasRolledSeven() == true && mComputer.whatSpotIsNeededNext() == 8)
@@ -275,11 +275,11 @@ namespace cs31
         }// look at what was rolled and update the board spots accordingly
     }
 
-    // CS 31 TODO: force a certain roll in the computer's turn of the game by cheating...
+    // forces a certain roll in the computer's turn of the game by cheating...
     void Centennial::computerPlay(Die d1, Die d2, Die d3)
     {
-        isHumanTurn = false; // mark that it is no longer the human's turn
-        int first = d1.getValue(); // force the computer player to cheat
+        isHumanTurn = false; // marks that it is no longer the human's turn
+        int first = d1.getValue(); // forces the computer player to cheat
         int second = d2.getValue();
         int third = d3.getValue();
         int firsttwo = first + second;
@@ -289,11 +289,11 @@ namespace cs31
         if ((first == 1 || second == 1 || third == 1) && mComputer.whatSpotIsNeededNext() == 1)
         {
             mComputer.rolled(1);
-            mBoard.setComputerSpot(1); // look at what was rolled and update the board spots accordingly
+            mBoard.setComputerSpot(1); // looks at what was rolled and update the board spots accordingly
         }
         if ((first == 2 || second == 2 || third == 2 || firsttwo == 2 || lasttwo == 2 || firstandthird == 2) && mComputer.hasRolledOne() == true && mComputer.whatSpotIsNeededNext() == 2)
         {
-            mComputer.rolled(2);
+            mComputer.rolled(2); // different combinations of rolls, the past roll has to be true and the spot needed has to be the same as what is rolled to not go backwards
             mBoard.setComputerSpot(2);
         }
         if ((first == 3 || second == 3 || third == 3 || firsttwo == 3 || lasttwo == 3 || firstandthird == 3 || total == 3) && mComputer.hasRolledTwo() == true && mComputer.whatSpotIsNeededNext() == 3)
@@ -318,7 +318,7 @@ namespace cs31
         }
         if ((firsttwo == 7 || lasttwo == 7 || firstandthird == 7 || total == 7) && mComputer.hasRolledSix() == true && mComputer.whatSpotIsNeededNext() == 7)
         {
-            mComputer.rolled(7);
+            mComputer.rolled(7); // for 7-12, a single die cannot get the value alone
             mBoard.setComputerSpot(7);
         }
         if ((firsttwo == 8 || lasttwo == 8 || firstandthird == 8 || total == 8) && mComputer.hasRolledSeven() == true && mComputer.whatSpotIsNeededNext() == 8)
@@ -345,53 +345,48 @@ namespace cs31
         {
             mComputer.rolled(12);
             mBoard.setComputerSpot(12);
-        }// look at what was rolled and update the board spots accordingly
+        }
     }
 
-    // CS 31 TODO: determine the current state of the game
     // Officially, the human won if that player has rolled 12,11,10,9,8,7,6,5,4,3,2 & 1
     // Officially, the computer won if that player has rolled 12,11,10,9,8,7,6,5,4,3,2 & 1
     // If neither, then the game is still underway
     Centennial::GAMEOUTCOME  Centennial::determineGameOutcome() const
     {
-        // for now, just to get it to build...
         GAMEOUTCOME result = GAMEOUTCOME::GAMENOTOVER;
         if (mHuman.hasRolledOne() == true && mHuman.hasRolledTwo() == true && mHuman.hasRolledThree() == true && mHuman.hasRolledFour() == true &&
             mHuman.hasRolledFive() == true && mHuman.hasRolledSix() == true && mHuman.hasRolledSeven() == true && mHuman.hasRolledEight() == true && 
             mHuman.hasRolledNine() == true && mHuman.hasRolledTen() == true && mHuman.hasRolledEleven() == true && mHuman.hasRolledTwelve() == true)
-        {
+        { // if the human has rolled to all spots, then they have won the game
             result = GAMEOUTCOME::HUMANWONGAME;
         }
         else if (mComputer.hasRolledOne() == true && mComputer.hasRolledTwo() == true && mComputer.hasRolledThree() == true && mComputer.hasRolledFour() == true && 
             mComputer.hasRolledFive() == true && mComputer.hasRolledSix() == true && mComputer.hasRolledSeven() == true && mComputer.hasRolledEight() == true && 
             mComputer.hasRolledNine() == true && mComputer.hasRolledTen() == true && mComputer.hasRolledEleven() == true && mComputer.hasRolledTwelve() == true)
-        {
+        { // if the computer has rolled to all spots, then they have won the game (if the human has not rolled 12 spots before the computer)
             result = GAMEOUTCOME::COMPUTERWONGAME;
         }
         return(result);
     }
 
-    // CS 31 TODO: determine if the game has ended
-    // HINT: call determineGameOutcome( )
+    // determines if the game has ended
     bool Centennial::isGameOver()
     {
         if (determineGameOutcome() == GAMEOUTCOME::GAMENOTOVER) { return false; }
         else { return true; }
     }
 
-    // trivial getter operation
+    // getters
     Player Centennial::getHuman() const
     {
         return(mHuman);
     }
 
-    // trivial getter operation
     Player Centennial::getComputer() const
     {
         return(mComputer);
     }
 
-    // trivial getter operation
     Board  Centennial::getBoard() const
     {
         return(mBoard);
