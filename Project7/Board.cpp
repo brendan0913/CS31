@@ -30,13 +30,13 @@ namespace cs31
     // setter
     void Board::markHumanAsWinner()
     {
-        if (mHumanSpot == 12) { mHumanWon = true; }
+        if (isGameOver() == true && mHumanSpot == 12) { mHumanWon = true; }
     }
 
     // setter
     void Board::markComputerAsWinner()
     {
-        if (mComputerSpot == 12) { mHumanWon = false; }
+        if (isGameOver() == true && mComputerSpot == 12) { mHumanWon = false; }
     }
 
     // getter

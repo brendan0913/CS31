@@ -125,6 +125,8 @@ namespace cs31
         {
             mHuman.rolled(12);
             mBoard.setHumanSpot(12);
+            mBoard.setGameOver(true);
+            mBoard.markHumanAsWinner();
         }
     }
 
@@ -198,6 +200,8 @@ namespace cs31
         {
             mHuman.rolled(12);
             mBoard.setHumanSpot(12);
+            mBoard.setGameOver(true);
+            mBoard.markHumanAsWinner();
         }
     }   
 
@@ -272,7 +276,9 @@ namespace cs31
         {
             mComputer.rolled(12);
             mBoard.setComputerSpot(12);
-        }// look at what was rolled and update the board spots accordingly
+            mBoard.setGameOver(true);
+            mBoard.markComputerAsWinner();
+        }
     }
 
     // forces a certain roll in the computer's turn of the game by cheating...
@@ -345,6 +351,8 @@ namespace cs31
         {
             mComputer.rolled(12);
             mBoard.setComputerSpot(12);
+            mBoard.setGameOver(true);
+            mBoard.markComputerAsWinner();
         }
     }
 
